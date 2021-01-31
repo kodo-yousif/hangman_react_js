@@ -1,38 +1,137 @@
-.App {
-  text-align: center;
+body {
+  margin: 0px;
+  padding: 0px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  user-select: none;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.start {
+  width: 100vw;
+  height: 100vh;
+  background: url(assets/flower.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-content: space-between;
+}
+.font {
+  font-family: "Courgette", cursive;
+}
+
+.card {
+  padding: 25px;
+  padding-top: 25px;
+  background: -o-radial-gradient(
+    0% 0%,
+    100% 100%,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  background: radial-gradient(
+    100% 100% at 0% 0%,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  -webkit-box-shadow: 0px 0px 12px rgb(82, 79, 79);
+  box-shadow: 0px 0px 15px rgb(65, 63, 63);
+}
+
+.card:hover {
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+  background: -o-radial-gradient(
+    0% 0%,
+    100% 100%,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  background: radial-gradient(
+    100% 100% at 0% 0%,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  -webkit-box-shadow: 0px 0px 16px rgb(82, 79, 79);
+  box-shadow: 0px 0px 16px rgb(117, 117, 117);
+}
+
+.shadoww {
+  text-shadow: 3px 2px 7px rgb(84, 122, 192);
+}
+
+.chbtn {
+  width: auto;
+  height: auto;
+  padding: 20px;
+  border-radius: 20px;
+  font-size: 30px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.chbtn:hover {
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.top {
+  justify-self: flex-start;
+  font-size: 66px;
+  font-weight: 600;
+  margin-top: 1vh;
+  color: black;
+  text-shadow: 1px 1px 15px white;
+}
+
+.dash:hover {
+  box-shadow: none;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2vh;
+}
+
+.controls div {
+  margin-right: 30px;
+  margin-left: 30px;
+  transition: 0.4s;
+}
+
+.dash {
+  width: 80%;
+  height: 90%;
+  margin: 20px;
+  box-shadow: none;
+  transition: 0.4s;
+  display: flex;
+}
+
+.s1 {
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+}
+
+.k1 {
+  flex: 5;
+}
+
+.k2 {
+  flex: 5;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: 0.4s;
+}
+.s2 {
+  flex: 6;
 }
