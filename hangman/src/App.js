@@ -1,19 +1,23 @@
 import React from "react";
 import "./App.css";
-import m0 from "./assets/1.png";
-import m1 from "./assets/2.png";
-import m2 from "./assets/3.png";
-import m3 from "./assets/4.png";
-import m4 from "./assets/5.png";
-import m5 from "./assets/6.png";
-import m6 from "./assets/7.png";
+import m0 from "./assets/0.png";
+import m1 from "./assets/1.png";
+import m2 from "./assets/2.png";
+import m3 from "./assets/3.png";
+import m4 from "./assets/4.png";
+import m5 from "./assets/5.png";
+import m6 from "./assets/6.png";
+import m7 from "./assets/7.png";
+import m8 from "./assets/8.png";
+import m9 from "./assets/9.png";
+import m10 from "./assets/10.png";
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       phase: "start",
-      cc: 0,
+      cc: 10,
       wsha: "kurdloow",
       found: [],
       counter: 10,
@@ -36,7 +40,7 @@ export default class App extends React.Component {
         console.log("ghalattt");
       }
     };
-    const imag = [m0, m1, m2, m3, m4, m5, m6];
+    const imag = [m0, m1, m2, m3, m4, m5, m6, m7, m8, m9, m10];
     return (
       <center className="start">
         <div className="font top">Hang the dude</div>
@@ -80,7 +84,7 @@ export default class App extends React.Component {
                   console.log("_");
                 }
               }
-              this.setState({ cc: (this.state.cc + 1) % 7 });
+              this.setState({ cc: (this.state.cc - 1) % 11 });
             }}
           >
             Restart
