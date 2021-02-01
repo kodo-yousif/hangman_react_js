@@ -14,10 +14,28 @@ export default class App extends React.Component {
     this.state = {
       phase: "start",
       cc: 0,
+      wsha: "kurdloow",
+      found: [],
+      counter: 10,
     };
   }
 
   render() {
+    let action = (pit) => {
+      let joining = [];
+      for (let i = 0; i < this.state.wsha.length; i++) {
+        if (this.state.wsha.charAt(i) === pit) {
+          joining.push(i);
+        }
+      }
+      var joined = this.state.found.concat(joining);
+      this.setState({ found: joined });
+
+      if (joining.length === 0) {
+        this.setState({ counter: this.state.counter - 1 });
+        console.log("ghalattt");
+      }
+    };
     const imag = [m0, m1, m2, m3, m4, m5, m6];
     return (
       <center className="start">
@@ -35,7 +53,17 @@ export default class App extends React.Component {
               style={{ backgroundImage: `url(${imag[this.state.cc]})` }}
             ></div>
           </div>
-          <div className="s2"></div>
+          <div className="s2">
+            {" "}
+            <input
+              type="text"
+              onChange={(event) => {
+                if (event.target.value.length !== 0) {
+                  action(event.target.value.charAt(0));
+                }
+              }}
+            />
+          </div>
         </div>
         <div className="controls">
           <div
@@ -45,6 +73,13 @@ export default class App extends React.Component {
                 this.state.phase === "gaming" ? "scale(1)" : "scale(0)",
             }}
             onClick={() => {
+              for (let x = 0; x < this.state.wsha.length; x++) {
+                if (this.state.found.indexOf(x) > -1) {
+                  console.log(this.state.wsha.charAt(x));
+                } else {
+                  console.log("_");
+                }
+              }
               this.setState({ cc: (this.state.cc + 1) % 7 });
             }}
           >
