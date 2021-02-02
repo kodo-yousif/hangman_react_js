@@ -1,16 +1,8 @@
 import React from "react";
 import "./App.css";
-import m0 from "./assets/0.png";
-import m1 from "./assets/1.png";
-import m2 from "./assets/2.png";
-import m3 from "./assets/3.png";
-import m4 from "./assets/4.png";
-import m5 from "./assets/5.png";
-import m6 from "./assets/6.png";
-import m7 from "./assets/7.png";
-import m8 from "./assets/8.png";
-import m9 from "./assets/9.png";
-import m10 from "./assets/10.png";
+import Start from "./components/Start";
+import Controls from "./components/control/Controls";
+import Gaming from "./components/Gaming/Gaming";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -18,9 +10,10 @@ export default class App extends React.Component {
     this.state = {
       phase: "start",
       cc: 10,
-      wsha: "kurdloow",
+      wsha: "",
+      diss: "",
       found: [],
-      counter: 10,
+      game: false,
     };
   }
 
@@ -36,84 +29,89 @@ export default class App extends React.Component {
       this.setState({ found: joined });
 
       if (joining.length === 0) {
-        this.setState({ counter: this.state.counter - 1 });
-        console.log("ghalattt");
+        this.setState({
+          cc: this.state.cc === 0 ? 10 : (this.state.cc - 1) % 11,
+        });
+        return false;
+      } else {
+        updt();
+        return true;
       }
     };
-    const imag = [m0, m1, m2, m3, m4, m5, m6, m7, m8, m9, m10];
+
+    let sgame = () => {
+      this.setState({ phase: "gaming", game: true });
+    };
+
+    let egame = () => {
+      this.setState({
+        phase: "start",
+        cc: 10,
+        wsha: "",
+        diss: "",
+        found: [],
+        game: false,
+      });
+    };
+
+    let the_word = (w) => {
+      console.log(w);
+      this.setState({ wsha: w });
+      updt();
+    };
+
+    let updt = () => {
+      setTimeout(() => {
+        let n = "";
+        for (let i = 0; i < this.state.wsha.length; i++) {
+          if (this.state.found.indexOf(i) > -1) {
+            n = n + " " + this.state.wsha.charAt(i);
+          } else {
+            n = n + " _";
+          }
+        }
+        this.setState({ diss: n });
+        console.log(this.state.wsha);
+      }, 50);
+    };
+
+    let res = () => {
+      this.setState({
+        phase: "gaming",
+        cc: 10,
+        wsha: "",
+        diss: "",
+        found: [],
+        game: false,
+      });
+      setTimeout(() => {
+        this.setState({ game: true });
+      }, 100);
+    };
     return (
       <center className="start">
-        <div className="font top">Hang the dude</div>
-        <div
-          className="card dash"
-          style={{
-            transform: this.state.phase === "gaming" ? "scale(1)" : "scale(0)",
-          }}
-        >
-          <div className="s1">
-            <div className="k1"></div>
-            <div
-              className="k2"
-              style={{ backgroundImage: `url(${imag[this.state.cc]})` }}
-            ></div>
-          </div>
-          <div className="s2">
-            {" "}
-            <input
-              type="text"
-              onChange={(event) => {
-                if (event.target.value.length !== 0) {
-                  action(event.target.value.charAt(0));
-                }
-              }}
-            />
-          </div>
-        </div>
-        <div className="controls">
-          <div
-            className="card chbtn font "
-            style={{
-              transform:
-                this.state.phase === "gaming" ? "scale(1)" : "scale(0)",
-            }}
-            onClick={() => {
-              for (let x = 0; x < this.state.wsha.length; x++) {
-                if (this.state.found.indexOf(x) > -1) {
-                  console.log(this.state.wsha.charAt(x));
-                } else {
-                  console.log("_");
-                }
-              }
-              this.setState({ cc: (this.state.cc - 1) % 11 });
-            }}
-          >
-            Restart
-          </div>
-          <div
-            className="card chbtn font"
-            onClick={() => {
-              this.setState({ phase: "gaming" });
-            }}
-            style={{
-              transform:
-                this.state.phase === "gaming" ? "scale(0)" : "scale(1)",
-            }}
-          >
-            Start
-          </div>
-          <div
-            className="card chbtn font "
-            style={{
-              transform:
-                this.state.phase === "gaming" ? "scale(1)" : "scale(0)",
-            }}
-            onClick={() => {
-              this.setState({ phase: "start" });
-            }}
-          >
-            End
-          </div>
-        </div>
+        <Start />
+        {this.state.game && (
+          <Gaming
+            the_word={the_word}
+            diss={this.state.diss}
+            action={action}
+            found={this.state.found}
+            wsha={this.state.wsha}
+            cc={
+              this.state.found.length === this.state.wsha.length &&
+              this.state.wsha !== ""
+                ? 11
+                : this.state.cc
+            }
+          />
+        )}
+        <Controls
+          phase={this.state.phase}
+          sgame={sgame}
+          egame={egame}
+          res={res}
+        />
       </center>
     );
   }

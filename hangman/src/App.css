@@ -12,7 +12,8 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  overflow: hidden;
+  overflow-y: scroll;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -123,6 +124,15 @@ body {
 
 .k1 {
   flex: 5;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  color: white;
+  text-shadow: 2px 2px 5px black;
+  letter-spacing: 5px;
 }
 
 .k2 {
@@ -134,4 +144,82 @@ body {
 }
 .s2 {
   flex: 6;
+  color: white;
+  text-shadow: 2px 2px 4px black;
+}
+
+.flex_con {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  margin-top: 33px;
+}
+
+.button_h {
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  align-content: center;
+  font-size: 25px;
+  font-weight: 600;
+  text-shadow: none;
+  vertical-align: middle;
+  line-height: 1.5;
+  padding: 2px;
+  margin: 10px;
+  box-shadow: 2px 2px 5px rgb(77, 77, 77);
+}
+
+.work {
+  color: rgb(44, 43, 43);
+  background-color: white;
+}
+
+.work:hover {
+  cursor: pointer;
+  background-color: rgb(182, 182, 182);
+  color: white;
+}
+
+.work:active {
+  background-color: rgb(67, 121, 223);
+}
+.stop {
+  color: rgb(54, 54, 54);
+}
+
+.stop:hover {
+  cursor: not-allowed;
+}
+
+.red {
+  background-color: rgb(226, 39, 39);
+}
+
+.green {
+  background-color: rgb(23, 199, 23);
+}
+
+.flex2 {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: space-around;
+  text-align: center;
+  text-shadow: 2px 2px 3px rgb(70, 68, 68);
+}
+
+.redd {
+  color: rgb(255, 4, 4);
+}
+
+.greenn {
+  color: rgb(8, 231, 8);
 }
