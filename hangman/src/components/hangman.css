@@ -1,0 +1,54 @@
+.hang {
+  font-family: "Hachi Maru Pop", cursive;
+  color: #d6ed17ff;
+  margin-bottom: 50px;
+}
+
+.button {
+  position: absolute;
+  top: 50%;
+  left: 80%;
+}
+
+.guess {
+  font-family: "Hachi Maru Pop", cursive;
+  color: #d6ed17ff;
+}
+
+#sound {
+  left: 70%;
+}
+
+.shadoww {
+  text-shadow: 2px 2px 5px black;
+}
+
+.wight {
+  font-weight: 600;
+}
+
+.lding {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-shadow: 2px 2px 5px black;
+  color: black;
+  background-color: white;
+  top: 0px;
+  left: 0px;
+  z-index: 100;
+}
+
+.walamm {
+  margin-top: 25px;
+  letter-spacing: 30px;
+}
+
+.yalla {
+  text-shadow: 2px 2px 5px rgb(74, 241, 74);
+  color: rgb(0, 255, 0);
+}
