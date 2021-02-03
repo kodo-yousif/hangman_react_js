@@ -123,7 +123,7 @@ export default class Hangman extends Component {
 
         <div className="text-center">
           <h4 className="guess shadoww wight">Guess the category</h4>
-          <h3 className="text-primary walamm wight shadoww">
+          <h3 className="walamm wight shadoww">
             {!gameOver ? this.gussedWord() : this.state.answer}
           </h3>
         </div>
@@ -160,6 +160,13 @@ export default class Hangman extends Component {
             >
               Reset
             </button>
+            <h1
+            className="guesss"
+            style={{
+               position: "absolute",
+               top: "20%",
+               left: "52%",
+            }}>Hint : {this.state.answer.substring(2,4)}</h1>
           </Col>
         </Row>
       </Container>
