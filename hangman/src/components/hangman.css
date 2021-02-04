@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 10 version
+*/
+
 .flower {
   background: url(../assets/bc1.jpg);
   background-position: center;
@@ -42,9 +49,16 @@
   position: fixed;
   width: 100vw;
   height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -ms-flex-line-pack: center;
   align-content: center;
   text-shadow: 2px 2px 5px black;
   color: black;
@@ -52,6 +66,8 @@
   top: 0px;
   left: 0px;
   z-index: 100;
+  -webkit-transition: 0.6s;
+  -o-transition: 0.6s;
   transition: 0.6s;
 }
 
@@ -117,10 +133,13 @@
   vertical-align: middle;
   padding: 2px;
   margin: 10px;
+  -webkit-box-shadow: 2px 2px 5px rgb(77, 77, 77);
   box-shadow: 2px 2px 5px rgb(77, 77, 77);
   width: 40px;
   height: 40px;
   line-height: 1.35;
+  -webkit-transition: 0.2s !important;
+  -o-transition: 0.2s !important;
   transition: 0.2s !important;
 }
 
@@ -156,18 +175,38 @@
 .flexx {
   width: 100%;
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -ms-flex-line-pack: center;
   align-content: center;
 }
 
 .flexx > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -ms-flex-line-pack: center;
   align-content: center;
   padding: 25px;
 
@@ -176,6 +215,12 @@
     100% 100%,
     rgba(255, 255, 255, 0.3) 0%,
     rgba(255, 255, 255, 0.05) 100%
+  );
+  background: -o-radial-gradient(
+    0% 0%,
+    100% 100%,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.1) 100%
   );
   background: radial-gradient(
     100% 100% at 0% 0%,
