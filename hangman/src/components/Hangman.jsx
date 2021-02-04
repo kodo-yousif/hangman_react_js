@@ -1,37 +1,16 @@
 import React, { Component } from "react";
 import "./hangman.css";
-
-import { Container, Row, Col } from "react-bootstrap";
-import Hangstats from "./all/Hangstats";
-import step0 from "../assets/0.png";
-import step1 from "../assets/1.png";
-import step2 from "../assets/2.png";
-import step3 from "../assets/3.png";
-import step4 from "../assets/4.png";
-import step5 from "../assets/5.png";
-import step6 from "../assets/6.png";
-import step7 from "../assets/7.png";
-import step8 from "../assets/8.png";
-import step9 from "../assets/9.png";
-import step10 from "../assets/10.png";
-import Loading from "./all/Loading";
+import { Row, Col } from "react-bootstrap";
+import Img from "./parts/Img";
+import Hangstats from "./parts/Hangstats";
+import Loading from "./parts/Loading";
+import Stats from "./parts/Stats";
+import Lost from "./parts/Lost";
+import Win from "./parts/Win";
 
 export default class Hangman extends Component {
   static defaultProps = {
     maxWrong: 10,
-    images: [
-      step0,
-      step1,
-      step2,
-      step3,
-      step4,
-      step5,
-      step6,
-      step7,
-      step8,
-      step9,
-      step10,
-    ],
   };
 
   constructor(props) {
@@ -40,6 +19,7 @@ export default class Hangman extends Component {
       mistake: 0,
       guessed: new Set([]),
       answer: "",
+      ld: true,
     };
   }
 
@@ -51,14 +31,19 @@ export default class Hangman extends Component {
         return res.json();
       })
       .then((res) => {
+        res[0] = res[0].toUpperCase();
         console.log(res[0]);
         this.setState({ answer: res[0] });
+        setTimeout(() => {
+          this.setState({ ld: false });
+        }, 1000);
       });
   }
 
   handleGuess = (x) => {
     let letter = x.target.value;
     var rt = this.state.answer.includes(letter);
+    console.log(letter);
     this.setState((st) => ({
       gussed: st.guessed.add(letter),
       mistake: st.mistake + (st.answer.includes(letter) ? 0 : 1),
@@ -73,17 +58,17 @@ export default class Hangman extends Component {
   }
 
   generateButtons() {
-    return "abcdefghijklmnopqrstuvwxyz".split("").map((letter) => (
+    return "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").map((letter) => (
       <button
-        className="btn-warning btn btn-lg m-2"
+        className="work btn btn-lg button_h"
         key={letter}
         value={letter}
         onClick={(event) => {
           var all = event.target.className.split(" ");
           if (this.handleGuess(event)) {
-            all[0] = "btn-success";
+            all.push("green");
           } else {
-            all[0] = "btn-danger";
+            all.push("red");
           }
           event.target.className = all.join(" ");
         }}
@@ -99,77 +84,75 @@ export default class Hangman extends Component {
       mistake: 0,
       guessed: new Set([]),
       answer: "",
+      ld: true,
     });
     this.componentDidMount();
   };
 
   render() {
-    const gameOver = this.state.mistake <= this.maxWrong;
     const winner = this.gussedWord().join("") === this.state.answer;
     let hangStat = this.generateButtons();
 
     if (winner) {
       hangStat = "You Won !!";
     }
-    if (gameOver) {
-      hangStat = "Game Over !!!";
-    }
 
     return (
-      <Container className="hangman container fluid">
-        {this.state.answer === "" ? <Loading /> : null}
-        <h1 className="text-center hang shadoww wight">Hange the dude</h1>
-        {this.state.mistake !== 10 ? <Hangstats hs={hangStat} /> : null}
-
-        <div className="text-center">
-          <h4 className="guess shadoww wight">Guess the category</h4>
-          <h3 className="walamm wight shadoww">
-            {!gameOver ? this.gussedWord() : this.state.answer}
-          </h3>
+      <div className=" hangman ">
+        {this.state.ld ? <Loading show={this.state.answer === ""} /> : null}
+        <div className="glass_item">
+          <h1 className="text-center hang  shadoww wight font">
+            Hange the dude
+          </h1>
+          {!(winner || this.state.mistake === 10) ? (
+            <Hangstats hs={hangStat} />
+          ) : winner ? (
+            <Win />
+          ) : (
+            <Lost />
+          )}
+        </div>
+        <div style={{ marginBottom: "25px" }} className="text-center">
+          <h2
+            className={
+              !(winner || this.state.mistake === 10)
+                ? "guess shadoww wight"
+                : winner
+                ? "guess shadoww wight gr_cl"
+                : "guess shadoww wight rd_cl"
+            }
+          >
+            Guess the Word
+          </h2>
+          <h2
+            className={
+              !(winner || this.state.mistake === 10)
+                ? "walamm"
+                : winner
+                ? "walamm gr_cl"
+                : "walamm rd_cl"
+            }
+          >
+            {!this.state.mistake !== 10 ? this.gussedWord() : this.state.answer}
+          </h2>
         </div>
 
         <Row>
           <Col>
-            <div className="text-center img-container">
-              <img src={this.props.images[this.state.mistake]} alt="" />
-            </div>
+            <Img mistake={!winner ? this.state.mistake : 11} />
           </Col>
           <Col>
-            <div
-              className="float-right wight"
-              style={{
-                position: "absolute",
-                left: "50%",
-                color: "#ED2B33FF",
-                fontWeight: "bolder",
-              }}
-            >
-              <h5 style={{ textShadow: "0px 0px 3px  black" }}>
-                Worng Guesses {this.state.mistake} of {this.props.maxWrong}
-              </h5>
-            </div>
-
-            <button
-              className="btn btn-danger"
-              onClick={this.resetButton}
-              style={{
-                position: "absolute",
-                top: "10%",
-                left: "60%",
-              }}
-            >
-              Reset
-            </button>
-            <h1
-            className="guesss"
-            style={{
-               position: "absolute",
-               top: "20%",
-               left: "52%",
-            }}>Hint : {this.state.answer.substring(2,4)}</h1>
+            <Stats
+              mistake={this.state.mistake}
+              maxWrong={this.props.maxWrong}
+              resetButton={this.resetButton}
+              answer={this.state.answer}
+              show={!(winner || this.state.mistake === 10) ? true : false}
+              win={winner}
+            />
           </Col>
         </Row>
-      </Container>
+      </div>
     );
   }
 }

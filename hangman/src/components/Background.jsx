@@ -38,7 +38,6 @@ export default class Background extends Component {
             this.setState({ sound: !this.state.sound });
           }}
           id="sound"
-          to="/"
           className="btn btn-lg btn btn-warning button"
         >
           {this.state.sound ? "Sound-" : "Sound+"}
