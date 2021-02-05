@@ -6,7 +6,7 @@
 */
 
 .flower {
-  background: url(../assets/bc1.jpg);
+  background: url(../assets/bc18.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -62,7 +62,7 @@
   align-content: center;
   text-shadow: 2px 2px 5px black;
   color: black;
-  background-color: white;
+  background-color: black;
   top: 0px;
   left: 0px;
   z-index: 100;
@@ -149,12 +149,11 @@
 }
 
 .work:hover {
-  background-color: rgb(0, 131, 238);
-  color: white;
+  background-color: rgb(201, 0, 0);
 }
 
 .red {
-  background-color: rgb(226, 39, 39) !important;
+  background-color: rgb(201, 0, 0) !important;
 }
 
 .green {
@@ -276,7 +275,7 @@
 .sk-cube-grid .sk-cube {
   width: 33%;
   height: 33%;
-  background-color: rgb(0, 68, 255);
+  background-color: rgb(177, 0, 0);
   float: left;
   -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
   animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;

@@ -25,7 +25,7 @@ export default class Stats extends Component {
             >
               Reset
             </button>
-            <Link to="/" className="mm btn btn-warning">
+            <Link to="/" className="mm btn btn-danger">
               End
             </Link>
           </div>
@@ -34,7 +34,19 @@ export default class Stats extends Component {
             style={{ display: this.props.show ? "block" : "none" }}
             className="hint shadoww"
           >
-            Hint : {this.props.answer.substring(2, 4)}
+            <span
+              onClick={this.props.hintt}
+              style={
+                ({ padding: "10px" },
+                { display: !this.props.hint ? "block" : "none" })
+              }
+              className="mm btn btn-danger"
+            >
+              Hint
+            </span>
+            <span style={{ display: this.props.hint ? "block" : "none" }}>
+              {this.props.answer.substring(2, 4)}
+            </span>
           </h3>
         </div>
       </div>

@@ -20,6 +20,7 @@ export default class Hangman extends Component {
       guessed: new Set([]),
       answer: "",
       ld: true,
+      hint: false,
     };
   }
 
@@ -40,10 +41,13 @@ export default class Hangman extends Component {
       });
   }
 
+  hintt = () => {
+    this.setState({ hint: true });
+  };
+
   handleGuess = (x) => {
     let letter = x.target.value;
     var rt = this.state.answer.includes(letter);
-    console.log(letter);
     this.setState((st) => ({
       gussed: st.guessed.add(letter),
       mistake: st.mistake + (st.answer.includes(letter) ? 0 : 1),
@@ -85,6 +89,7 @@ export default class Hangman extends Component {
       guessed: new Set([]),
       answer: "",
       ld: true,
+      hint: false,
     });
     this.componentDidMount();
   };
@@ -149,6 +154,8 @@ export default class Hangman extends Component {
               answer={this.state.answer}
               show={!(winner || this.state.mistake === 10) ? true : false}
               win={winner}
+              hint={this.state.hint}
+              hintt={this.hintt}
             />
           </Col>
         </Row>
