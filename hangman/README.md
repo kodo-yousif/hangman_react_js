@@ -1,68 +1,39 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Hangman
+A puzzle game that is built on finding a hidden word to save the poor man from being hanged.
 
-## Available Scripts
+Getting Started
+in order to the App locally just clone the repo, yart install it then yarn run.
 
-In the project directory, you can run:
+Prerequisites
+only install all the dependencies before runnug the App, all what you need to wrtie is the following line of code
+hangman_react_js\hangman> npm yarn install
 
-### `yarn start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Installing
+only the dependencies are required 
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Running the tests
+you don't need to test anything
 
-### `yarn test`
+Built With
+React - The web framework used
+npm - Dependency Management
+Contributing
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+Versioning
+We use SemVer for versioning. For the versions available, see the tags on this repository.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Authors
+@maqalaqil - Initial work - Re-Coded React instructor
+See also the list of contributors who participated in this project.
+Ravyar - A Junior Front End Web Developer.
+Kodo - A Junior Front End Web Developer.
+Shirin - A Junior Front End Web Developer.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+License
+This project is licensed under the MIT License - see the LICENSE.md file for details
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Acknowledgments
+To youtube.com / Stack OverFlow / Bootstrap / React resources / glass morphism design resources.
+Inspired by Pokémon  https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4a53ccc7-0897-4d3e-a549-471550d35537/de83wwh-6cdae612-94dc-421b-be08-fe83e109a839.png/v1/fill/w_1000,h_800,q_70,strp/glastrier___the_wild_horse_pokemon_by_artisticazadia_de83wwh-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvNGE1M2NjYzctMDg5Ny00ZDNlLWE1NDktNDcxNTUwZDM1NTM3XC9kZTgzd3doLTZjZGFlNjEyLTk0ZGMtNDIxYi1iZTA4LWZlODNlMTA5YTgzOS5wbmciLCJoZWlnaHQiOiI8PTE1MzYiLCJ3aWR0aCI6Ijw9MTkyMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS53YXRlcm1hcmsiXSwid21rIjp7InBhdGgiOiJcL3dtXC80YTUzY2NjNy0wODk3LTRkM2UtYTU0OS00NzE1NTBkMzU1MzdcL2FydGlzdGljYXphZGlhLTQucG5nIiwib3BhY2l0eSI6OTUsInByb3BvcnRpb25zIjowLjQ1LCJncmF2aXR5IjoiY2VudGVyIn19.c_upsCxz0TWv3GkvXZdsQpahJ2bTiTZQZLBnhP9NvHw
